@@ -1,33 +1,53 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 
 const Signup = () => {
-    return (
-        <div className="w-full mx-auto my-5 max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  return (
+    <div className="w-full mx-auto my-5 max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
       <h1 className="text-2xl font-bold text-center">Sign up</h1>
-      <form className="space-y-6 ng-untouched ng-pristine ng-valid">
-        
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="space-y-6 ng-untouched ng-pristine ng-valid"
+      >
         <div className="space-y-1 text-sm">
-          <label for="email" className="block dark:text-gray-400">
+          <label htmlFor="email" className="block dark:text-gray-400">
             Email
           </label>
           <input
-            type="text"
+            {...register("email")}
+            type="email"
+            required
             id="email"
             placeholder="email"
             className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-blue-400"
           />
         </div>
         <div className="space-y-1 text-sm">
-          <label for="password" className="block dark:text-gray-400">
+          <label htmlFor="password" className="block dark:text-gray-400">
             Password
           </label>
           <input
+            {...register("password", { required: "plese type password" })}
             type="password"
             id="password"
             placeholder="Password"
             className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-blue-400"
           />
+          {errors.password && (
+            <p className="text-red-400 "> {errors.password.message}</p>
+          )}
         </div>
         <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-blue-400">
           Sign up
@@ -41,8 +61,11 @@ const Signup = () => {
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
       </div>
       <div className="flex justify-center space-x-4">
-        <button aria-label="Log in with Google" className="p-3 rounded-sm">
-          google
+        <button
+          aria-label="Log in with Google"
+          className="p-3 text-3xl font-bold rounded-sm"
+        >
+          <FcGoogle />
         </button>
       </div>
       <p className="text-xs text-center sm:px-6 dark:text-gray-400">
@@ -57,7 +80,7 @@ const Signup = () => {
         </Link>
       </p>
     </div>
-    );
+  );
 };
 
 export default Signup;
