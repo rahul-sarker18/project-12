@@ -18,10 +18,20 @@ const NaveBar = () => {
         <Link to='/dasbord'>DasBord</Link>
       </li>
       <li>
-        <Link to='/'>Login</Link>
+        <Link to='/login'>Login</Link>
       </li>
       <li>
         <Link>Sign Out</Link>
+      </li>
+      <li>
+      <div className="drawer-content flex flex-col ">
+          <label
+            htmlFor="my-drawer-2"
+            className="btn btn-primary drawer-button lg:hidden"
+          >
+            Open drawer
+          </label>
+        </div>
       </li>
     </>
   );
