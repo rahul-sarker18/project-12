@@ -1,0 +1,108 @@
+[
+  {
+    "id": "111",
+    "products": [
+      {
+        "name": "Iphone 12",
+        "catocory": "iphone",
+        "Price": "45000",
+        "originalprice": "61000",
+        "location": "Bardhaman",
+        "yearsof": "4m",
+        "image": "https://ibb.co/fQfvtTL",
+        "date": ""
+      },
+      {
+        "name": "Iphone 11 pro",
+        "catocory": "iphone",
+        "Price": "30000",
+        "originalprice": "43000",
+        "location": "kolkata",
+        "yearsof": "3m",
+        "image": "https://ibb.co/FWhGjM4",
+        "date": ""
+      },
+      {
+        "name": "Iphone 6s",
+        "catocory": "iphone",
+        "Price": "18000",
+        "originalprice": "29000",
+        "location": "kolkata",
+        "yearsof": "1m",
+        "image": "https://ibb.co/cFKvMxN",
+        "date": ""
+      }
+    ]
+  },
+
+  {
+    "id": "222",
+    "products": [
+      {
+        "name": "oppo reno 7 pro",
+        "catocory": "oppo",
+        "Price": "20000",
+        "originalprice": "32000",
+        "location": "Bardhaman",
+        "yearsof": "6m",
+        "image": "https://ibb.co/vZnbYwK",
+        "date": ""
+      },
+      {
+        "name": "oppo reno 6 pro",
+        "catocory": "oppo",
+        "Price": "25000",
+        "originalprice": "39000",
+        "location": "kolkata",
+        "yearsof": "10m",
+        "image": "https://ibb.co/zPwwvXd",
+        "date": ""
+      },
+      {
+        "name": "oppo find x3 pro",
+        "catocory": "oppo",
+        "Price": "60000",
+        "originalprice": "99000",
+        "location": "Bardhaman",
+        "yearsof": "6m",
+        "image": "https://ibb.co/CWHp1Bb",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": "333",
+    "products": [
+      {
+        "name": "SAMSUNG Galaxy A33",
+        "catocory": "sumsung",
+        "Price": "15000",
+        "originalprice": "28499",
+        "location": "Bardhaman",
+        "yearsof": "4m",
+        "image": "https://ibb.co/Fm3WJkD",
+        "date": ""
+      },
+      {
+        "name": "Samsung Galaxy S22 Ultra",
+        "catocory": "sumsung",
+        "Price": "40000",
+        "originalprice": "95000",
+        "location": "Bardhaman",
+        "yearsof": "2m",
+        "image": "https://ibb.co/1LsLYCN",
+        "date": ""
+      },
+      {
+        "name": "SAMSUNG Galaxy A03",
+        "catocory": "sumsung",
+        "Price": "5000",
+        "originalprice": "10000",
+        "location": "kolkata",
+        "yearsof": "9m",
+        "image": "https://ibb.co/rsrkcJZ",
+        "date": ""
+      }
+    ]
+  }
+]

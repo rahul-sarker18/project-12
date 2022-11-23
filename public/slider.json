@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Iphone",
+    "image": "https://ibb.co/fQfvtTL",
+    "title": "",
+    "previseslider": "#slide3",
+    "nextslideId": "#slide2",
+    "_id": "",
+    "id":"slide1"
+  },
+  {
+    "name": "Samsung",
+    "image": "https://ibb.co/1LsLYCN",
+    "title": "",
+    "previseslider": "#slide1",
+    "nextslideId": "#slide3",
+    "_id": "",
+    "id":"slide2"
+  },
+  {
+    "name": "Oppo",
+    "image": "https://ibb.co/vZnbYwK",
+    "title": "",
+    "previseslider": "#slide2",
+    "nextslideId": "#slide1",
+    "_id": "",
+    "id":"slide3"
+  }
+]

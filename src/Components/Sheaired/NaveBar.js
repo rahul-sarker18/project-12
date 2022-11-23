@@ -11,6 +11,18 @@ const NaveBar = () => {
       <li>
         <Link to='/'>Product</Link>
       </li>
+      <li>
+        <Link to='/'>Blog</Link>
+      </li>
+      <li>
+        <Link to='/dasbord'>DasBord</Link>
+      </li>
+      <li>
+        <Link to='/'>Login</Link>
+      </li>
+      <li>
+        <Link>Sign Out</Link>
+      </li>
     </>
   );
 
