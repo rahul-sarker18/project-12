@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
+import toast from 'react-hot-toast';
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { Authencations } from '../Context/Usercontext';
@@ -11,10 +12,18 @@ const Login = () => {
     watch,
     formState: { errors },
   } = useForm();
+  const { logemail } = useContext(Authencations);
   const onSubmit = (data) => {
-    console.log(data);
+    logemail(data.email, data.password)
+      .then((res) => {
+        console.log(res.user);
+        toast.success('successfuly login !!')
+      })
+      .catch((e) => {
+        console.log(e);
+        toast.error(e.message)
+      });
   };
-  const {user} = useContext(Authencations)
 
   return (
     <div className="w-full mx-auto my-5 max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">

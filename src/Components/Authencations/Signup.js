@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { Authencations } from "../Context/Usercontext";
 import { updateProfile } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const Signup = () => {
   const {
@@ -31,9 +32,11 @@ const Signup = () => {
             console.log(e);
           });
         console.log(user);
+        toast.success('successfuly login !!')
       })
       .catch((error) => {
         console.log(error);
+        toast.error(error.message)
       });
   };
 
