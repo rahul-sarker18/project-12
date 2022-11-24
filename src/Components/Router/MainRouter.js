@@ -6,6 +6,7 @@ import MainLayout from "../Layout/MainLayout";
 import Dasbord from "../Page/Dahbord/Dasbord";
 import Home from "../Page/Home/Home";
 import AllProducts from "../Sheaired/Service/AllProducts/AllProducts";
+import Byu from "../Sheaired/Service/Buy/Byu";
 import MainSarvice from "../Sheaired/Service/MainSarvice";
 
 const router = createBrowserRouter([
@@ -18,6 +19,8 @@ const router = createBrowserRouter([
       { path: "/signup", element: <Signup /> },
       { path: "/services", element: <MainSarvice /> },
       { path: "//services/:id", element: <AllProducts /> , loader: ({params})=>fetch(`http://localhost:8000/allProducts/${params.id}`) },
+      { path: "/buy/:id", element: <Byu /> , loader:({params})=>fetch(`http://localhost:8000/buy/${params.id}`) },
+
     ],
   },
   {

@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import { Authencations } from "../Context/Usercontext";
+
 import { updateProfile } from "firebase/auth";
 import toast from "react-hot-toast";
+import { Authcontext } from "../Context/Usercontext";
 
 const Signup = () => {
   const {
@@ -14,7 +15,7 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
 
-  const { signupEmail, auth } = useContext(Authencations);
+  const { signupEmail, auth } = useContext(Authcontext);
 
   //submite
   const onSubmit = (data) => {

@@ -1,10 +1,11 @@
 import { signOut } from "firebase/auth";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Authencations } from "../Context/Usercontext";
+import { Authcontext } from "../Context/Usercontext";
+
 
 const NaveBar = () => {
-  const { user, auth } = useContext(Authencations);
+  const { user, auth } = useContext(Authcontext);
 
 
   const handelsignout = () => {

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
-import { Authencations } from '../Context/Usercontext';
+import { Authcontext } from '../Context/Usercontext';
 
 const Login = () => {
   const {
@@ -12,7 +12,7 @@ const Login = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const { logemail } = useContext(Authencations);
+  const { logemail } = useContext(Authcontext);
   const onSubmit = (data) => {
     logemail(data.email, data.password)
       .then((res) => {

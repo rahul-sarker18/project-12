@@ -1,12 +1,13 @@
 import React from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { BiRupee } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const AllProductsCard = ({ pro }) => {
-  console.log(pro);
-  const { name, Price, image, location, originalprice, yearsof } = pro;
+  const { name, Price, image, location, originalprice, yearsof, _id } = pro;
+
   return (
-    <div >
+    <div>
       <div className="flex mx-auto flex-col max-w-xl p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
         <div className="flex space-x-4">
           <img
@@ -21,7 +22,6 @@ const AllProductsCard = ({ pro }) => {
         </div>
 
         <div>
-          
           <img
             src={image}
             alt=""
@@ -40,11 +40,10 @@ const AllProductsCard = ({ pro }) => {
               <span className="font-bold">Price:</span> {Price} <BiRupee />
             </h2>
             <h2 className="mb-1 flex items-center gap-1 font-semibold">
-              <span className="font-bold">Originalprice:</span> {originalprice}{" "}
+              <span className="font-bold">Originalprice:</span> {originalprice}
               <BiRupee />
             </h2>
             <p className="text-sm  text-white">
-              {" "}
               <span className="font-bold">Yearsofus:</span> {yearsof}
             </p>
           </div>
@@ -52,9 +51,11 @@ const AllProductsCard = ({ pro }) => {
             <button className="btn btn-secondary gap-2 w-1/2">
               Add to Card
             </button>
-            <button className="btn btn-accent w-1/2 gap-2  bg-blue-800">
-              Buy Now
-            </button>
+            <Link to={`/buy/${_id}`}>
+              <button className="btn btn-accent w-1/2 gap-2  bg-blue-800">
+                Buy Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>

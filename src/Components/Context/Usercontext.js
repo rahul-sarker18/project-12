@@ -7,11 +7,12 @@ import {
 } from "firebase/auth";
 import app from "../Firebase/Firebase";
 
-export const Authencations = createContext();
+export const Authcontext = createContext();
 const auth = getAuth(app);
 
 const Usercontext = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [buyi, setBuyi] = useState(null);
 
   const [loder, SetLoder] = useState(true);
 
@@ -40,15 +41,16 @@ const Usercontext = ({ children }) => {
   const authInfo = {
     user,
     loder,
+    buyi, setBuyi,
     signupEmail,
     logemail,
     auth,
   };
   return (
     <div>
-      <Authencations.Provider value={authInfo}>
+      <Authcontext.Provider value={authInfo}>
         {children}
-      </Authencations.Provider>
+      </Authcontext.Provider>
     </div>
   );
 };
