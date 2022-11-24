@@ -5,7 +5,7 @@ import CheckoutForm from './CheckoutForm ';
 
 const BuyCart = ({p}) => {
     console.log(p);
-    const {Price , image , _id} = p;
+    // const {Price , image , _id} = p;
 
     const stripePromise= loadStripe('pk_test_51M6ApoSDopG0Dh4gf9tyWGWUSrHW4VZMIeCx3LvZozfvdc0xQMcVHBTw5TfRZNhZUWXUoPasRs5dqDOcmyiuQ8be00AXVxSisJ');
 

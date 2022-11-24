@@ -1,5 +1,8 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { format } from "date-fns";
 import React, { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { Authcontext } from "../../../Context/Usercontext";
 
 const CheckoutForm = ({ p }) => {
@@ -7,16 +10,28 @@ const CheckoutForm = ({ p }) => {
   const elements = useElements();
   const { user } = useContext(Authcontext);
   const [error, seterror] = useState("");
+  const dat = new Date();
+  const date = format(dat, "PP");
+
+  const navegate = useNavigate()
 
   const [clientSecret, setClientSecret] = useState("");
-  const { Price } = p;
+  const { Price, name, image } = p;
+
+  const update = {
+    email: user?.email,
+    Price,
+    name,
+    image,
+    date,
+  };
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     fetch("http://localhost:8000/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({Price}),
+      body: JSON.stringify({ Price }),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
@@ -52,7 +67,6 @@ const CheckoutForm = ({ p }) => {
           card: card,
           billing_details: {
             email: user?.email,
-            
           },
         },
       }
@@ -63,7 +77,20 @@ const CheckoutForm = ({ p }) => {
       seterror(error.message);
     }
 
-    console.log(paymentIntent);
+    if (paymentIntent.status === "succeeded") {
+      seterror("");
+      fetch("http://localhost:8000/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(update),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          navegate('/')
+        });
+        toast.success("successFuly paent !!");
+    }
   };
 
   return (
@@ -80,7 +107,7 @@ const CheckoutForm = ({ p }) => {
           <input
             disabled
             id="email"
-            value={p?.name}
+            value={name}
             className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-blue-400"
           />
         </div>
