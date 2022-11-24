@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { Authencations } from '../Context/Usercontext';
 
 const Login = () => {
   const {
@@ -13,10 +14,12 @@ const Login = () => {
   const onSubmit = (data) => {
     console.log(data);
   };
+  const {user} = useContext(Authencations)
 
   return (
     <div className="w-full mx-auto my-5 max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
       <h1 className="text-2xl font-bold text-center">Login</h1>
+     
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="space-y-6 ng-untouched ng-pristine ng-valid"
