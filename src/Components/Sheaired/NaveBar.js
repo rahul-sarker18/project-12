@@ -1,30 +1,48 @@
-import React from "react";
+import { signOut } from "firebase/auth";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Authencations } from "../Context/Usercontext";
 
 const NaveBar = () => {
+  const { user, auth } = useContext(Authencations);
+
+  console.log(user);
+  const handelsignout = () => {
+    signOut(auth)
+      .then(() => {})
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   const naveitems = (
     <>
       <li>
-        <Link to='/'>Home</Link>
+        <Link to="/">Home</Link>
       </li>
 
       <li>
-        <Link to='/'>Product</Link>
+        <Link to="/">Product</Link>
       </li>
       <li>
-        <Link to='/'>Blog</Link>
+        <Link to="/">Blog</Link>
       </li>
       <li>
-        <Link to='/dasbord'>DasBord</Link>
+        <Link to="/dasbord">DasBord</Link>
       </li>
+
+      {user?.uid ? (
+        <li onClick={handelsignout}>
+          <Link>Sign Out</Link>
+        </li>
+      ) : (
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+      )}
+
       <li>
-        <Link to='/login'>Login</Link>
-      </li>
-      <li>
-        <Link>Sign Out</Link>
-      </li>
-      <li>
-      <div className="drawer-content flex flex-col ">
+        <div className="drawer-content flex flex-col ">
           <label
             htmlFor="my-drawer-2"
             className="btn btn-primary drawer-button lg:hidden"
@@ -40,7 +58,9 @@ const NaveBar = () => {
     <div>
       <div className="navbar bg-base-100">
         <div className="navbar-start">
-          <Link to='/' className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+          <Link to="/" className="btn btn-ghost normal-case text-xl">
+            daisyUI
+          </Link>
         </div>
 
         <div className="navbar-end">
@@ -67,7 +87,7 @@ const NaveBar = () => {
                 />
               </svg>
             </label>
-             
+
             <ul
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"

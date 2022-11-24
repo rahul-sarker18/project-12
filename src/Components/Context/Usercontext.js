@@ -1,9 +1,9 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
-  updateProfile,
 } from "firebase/auth";
 import app from "../Firebase/Firebase";
 
@@ -11,7 +11,7 @@ export const Authencations = createContext();
 const auth = getAuth(app);
 
 const Usercontext = ({ children }) => {
-  const [user, setUser] = useState("Rahul");
+  const [user, setUser] = useState(null);
 
   const [loder, SetLoder] = useState(true);
 
@@ -25,15 +25,24 @@ const Usercontext = ({ children }) => {
     SetLoder(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
-  
+  // user get
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (cruser) => {
+      setUser(cruser);
+      SetLoder(false);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   const authInfo = {
     user,
     loder,
     signupEmail,
     logemail,
-    auth
-
+    auth,
   };
   return (
     <div>
