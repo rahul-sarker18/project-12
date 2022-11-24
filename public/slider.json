@@ -5,16 +5,16 @@
     "title": "",
     "previseslider": "#slide3",
     "nextslideId": "#slide2",
-    "_id": "",
+    "catacoruId":"111",
     "id":"slide1"
   },
   {
     "name": "Samsung",
-    "image": "https://ibb.co/1LsLYCN",
+    "image": "https://i.ibb.co/wRJRZnq/Samsung-Galaxy-S22-Ultra.jpg",
     "title": "",
     "previseslider": "#slide1",
     "nextslideId": "#slide3",
-    "_id": "",
+    "catacoruId":"333",
     "id":"slide2"
   },
   {
@@ -23,7 +23,7 @@
     "title": "",
     "previseslider": "#slide2",
     "nextslideId": "#slide1",
-    "_id": "",
+    "catacoruId":"222",
     "id":"slide3"
   }
 ]

@@ -1,10 +1,12 @@
 import React from "react";
-import Slider from "./Slider";
+import Advitisment from "./Advitisment/Advitisment";
+// import Slider from "./Slider";
 
 const Home = () => {
   return (
     <div>
-        <Slider/>
+      {/* <Slider /> */}
+      <Advitisment />
     </div>
   );
 };
