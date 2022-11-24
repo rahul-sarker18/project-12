@@ -5,6 +5,8 @@ import DasbordLayout from "../Layout/DasbordLayout";
 import MainLayout from "../Layout/MainLayout";
 import Dasbord from "../Page/Dahbord/Dasbord";
 import Home from "../Page/Home/Home";
+import AllProducts from "../Sheaired/Service/AllProducts/AllProducts";
+import MainSarvice from "../Sheaired/Service/MainSarvice";
 
 const router = createBrowserRouter([
   {
@@ -12,17 +14,20 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       { path: "/", element: <Home /> },
-    { path: "/login", element: <Login /> },
-    { path: "/signup", element: <Signup /> },
-    { path: "/login", element: <Login /> },
-  ],
+      { path: "/login", element: <Login /> },
+      { path: "/signup", element: <Signup /> },
+      { path: "/services", element: <MainSarvice /> },
+      { path: "//services/:id", element: <AllProducts /> , loader: ({params})=>fetch(`http://localhost:8000/allProducts/${params.id}`) },
+    ],
   },
   {
     path: "/dasbord",
     element: <DasbordLayout />,
-    children: [{ path: "/dasbord", element: <Dasbord /> }],
+    children: [
+      { path: "/dasbord", element: <Dasbord /> },
+      { path: "/dasbord", element: <Dasbord /> },
+    ],
   },
-
 ]);
 
 export default router;

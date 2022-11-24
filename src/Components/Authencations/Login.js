@@ -16,11 +16,11 @@ const Login = () => {
   const onSubmit = (data) => {
     logemail(data.email, data.password)
       .then((res) => {
-        console.log(res.user);
+       
         toast.success('successfuly login !!')
       })
       .catch((e) => {
-        console.log(e);
+        
         toast.error(e.message)
       });
   };

@@ -29,13 +29,13 @@ const Signup = () => {
         })
           .then(() => {})
           .catch((e) => {
-            console.log(e);
+            
           });
-        console.log(user);
+      
         toast.success('successfuly login !!')
       })
       .catch((error) => {
-        console.log(error);
+   
         toast.error(error.message)
       });
   };

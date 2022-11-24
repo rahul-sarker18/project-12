@@ -1,12 +1,12 @@
 [
   {
     "name": "Iphone",
-    "image": "https://ibb.co/fQfvtTL",
+    "image": "https://i.ibb.co/SJbr0ZG/Iphone-12.jpg",
     "title": "",
     "previseslider": "#slide3",
     "nextslideId": "#slide2",
-    "catacoruId":"111",
-    "id":"slide1"
+    "catacoruId": "111",
+    "id": "slide1"
   },
   {
     "name": "Samsung",
@@ -14,16 +14,16 @@
     "title": "",
     "previseslider": "#slide1",
     "nextslideId": "#slide3",
-    "catacoruId":"333",
-    "id":"slide2"
+    "catacoruId": "333",
+    "id": "slide2"
   },
   {
     "name": "Oppo",
-    "image": "https://ibb.co/vZnbYwK",
+    "image": "https://i.ibb.co/Ws2Nxnk/oppo-find-x3-pro.jpg",
     "title": "",
     "previseslider": "#slide2",
     "nextslideId": "#slide1",
-    "catacoruId":"222",
-    "id":"slide3"
+    "catacoruId": "222",
+    "id": "slide3"
   }
 ]

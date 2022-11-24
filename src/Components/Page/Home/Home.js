@@ -1,11 +1,12 @@
 import React from "react";
 import Advitisment from "./Advitisment/Advitisment";
-// import Slider from "./Slider";
+import Slidecards from "./Slidecards";
+
 
 const Home = () => {
   return (
     <div>
-      {/* <Slider /> */}
+      <Slidecards />
       <Advitisment />
     </div>
   );

@@ -6,12 +6,12 @@ import { Authencations } from "../Context/Usercontext";
 const NaveBar = () => {
   const { user, auth } = useContext(Authencations);
 
-  console.log(user);
+
   const handelsignout = () => {
     signOut(auth)
       .then(() => {})
       .catch((e) => {
-        console.log(e);
+        
       });
   };
 
@@ -22,7 +22,7 @@ const NaveBar = () => {
       </li>
 
       <li>
-        <Link to="/">Product</Link>
+        <Link to="/services">Services</Link>
       </li>
       <li>
         <Link to="/">Blog</Link>
