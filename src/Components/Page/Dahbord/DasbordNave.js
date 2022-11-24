@@ -10,7 +10,7 @@ const DasbordNave = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-64  text-black  bg-slate-400">
             <li>
-              <Link to='/dasbord/addproduct'>Add Products</Link>
+              <Link to='/dasbord/Myorders'>My orders</Link>
             </li>
             <li>
               <Link to='/dasbord/'>Sidebar Item 2</Link>

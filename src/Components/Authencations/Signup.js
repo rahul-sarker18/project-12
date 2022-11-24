@@ -85,9 +85,9 @@ const Signup = () => {
             className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-blue-400"
             {...register("roll")}
           >
-            <option value="female">female</option>
-            <option value="male">male</option>
-            <option value="other">other</option>
+            <option value="female">seller account</option>
+            <option value="male">seller buyers</option>
+           
           </select>
         </div>
         <div className="space-y-1 text-sm">
