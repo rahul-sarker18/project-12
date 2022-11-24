@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import app from "../Firebase/Firebase";
 
@@ -24,12 +25,15 @@ const Usercontext = ({ children }) => {
     SetLoder(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+  
 
   const authInfo = {
     user,
+    loder,
     signupEmail,
     logemail,
-    
+    auth
+
   };
   return (
     <div>

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { Authencations } from "../Context/Usercontext";
+import { updateProfile } from "firebase/auth";
 
 const Signup = () => {
   const {
@@ -11,13 +12,24 @@ const Signup = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const { signupEmail } = useContext(Authencations);
 
+  const { signupEmail, auth } = useContext(Authencations);
+
+  //submite
   const onSubmit = (data) => {
-    console.log(data);
+    // sign up email and password
     signupEmail(data.email, data.password)
       .then((res) => {
         const user = res.user;
+        //update user name
+        updateProfile(auth.currentUser, {
+          displayName: data.username,
+          photoURL: "https://i.ibb.co/ZJnwZhP/no.png",
+        })
+          .then(() => {})
+          .catch((e) => {
+            console.log(e);
+          });
         console.log(user);
       })
       .catch((error) => {
@@ -60,8 +72,9 @@ const Signup = () => {
             className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-blue-400"
           />
         </div>
+
         <div className="space-y-1 text-sm">
-          <label htmlFor="email" className="block dark:text-gray-400">
+          <label htmlFor="roll" className="block dark:text-gray-400">
             Roll
           </label>
           <select
