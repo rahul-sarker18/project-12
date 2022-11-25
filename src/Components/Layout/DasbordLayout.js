@@ -7,10 +7,14 @@ const DasbordLayout = () => {
   return (
     <div>
       <NaveBar />
-      <div>
-        <DasbordNave />
+      <div className="lg:flex  gap-5 relative ">
+       <div className="absolute;">
+       <DasbordNave />
+       </div>
 
-        <Outlet />
+        <div className="bg-white w-[100vw] mt-0">
+          <Outlet />
+        </div>
       </div>
     </div>
   );
