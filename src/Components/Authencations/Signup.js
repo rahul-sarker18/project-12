@@ -15,8 +15,7 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
 
-  const { signupEmail, auth } = useContext(Authcontext);
-  
+  const { signupEmail, auth, googlesubmite } = useContext(Authcontext);
 
   //submite
   const onSubmit = (data) => {
@@ -35,17 +34,33 @@ const Signup = () => {
             const useinformation = { email, username, roll };
             fetch("http://localhost:8000/users", {
               method: "POST",
-              headers:{
-                "content-type":"application/json"
+              headers: {
+                "content-type": "application/json",
               },
-              body: JSON.stringify(useinformation)
-            }).then(res=> res.json()).then(data => {
-              console.log(data);
-            });
+              body: JSON.stringify(useinformation),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+              });
           })
           .catch((e) => {});
 
-        toast.success("successfuly login !!");
+        toast.success("successfuly sign up !!");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
+  // google sign up
+  const handelgoogle = () => {
+    googlesubmite()
+      .then((res) => {
+        const  user=res.user;
+        const {displayName:username ,email} =user
+        console.log(email , username);
+        toast.success("successfuly sign up !!");
       })
       .catch((error) => {
         toast.error(error.message);
@@ -129,6 +144,7 @@ const Signup = () => {
       </div>
       <div className="flex justify-center space-x-4">
         <button
+          onClick={handelgoogle}
           aria-label="Log in with Google"
           className="p-3  text-3xl font-bold rounded-sm"
         >

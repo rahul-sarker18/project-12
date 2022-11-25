@@ -2,8 +2,10 @@ import React, { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
 } from "firebase/auth";
 import app from "../Firebase/Firebase";
 
@@ -13,7 +15,7 @@ const auth = getAuth(app);
 const Usercontext = ({ children }) => {
   const [user, setUser] = useState(null);
   const [buyi, setBuyi] = useState(null);
-
+  const provider = new GoogleAuthProvider();
   const [loder, SetLoder] = useState(true);
 
   //email and password sign up
@@ -26,13 +28,17 @@ const Usercontext = ({ children }) => {
     SetLoder(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+  //google submite
+  const googlesubmite = () => {
+    SetLoder(true);
+    return signInWithPopup(auth, provider);
+  };
   // user get
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (cruser) => {
       setUser(cruser);
       SetLoder(false);
     });
-
     return () => {
       unsubscribe();
     };
@@ -41,16 +47,16 @@ const Usercontext = ({ children }) => {
   const authInfo = {
     user,
     loder,
-    buyi, setBuyi,
+    auth,
+    buyi,
+    setBuyi,
     signupEmail,
     logemail,
-    auth,
+    googlesubmite,
   };
   return (
     <div>
-      <Authcontext.Provider value={authInfo}>
-        {children}
-      </Authcontext.Provider>
+      <Authcontext.Provider value={authInfo}>{children}</Authcontext.Provider>
     </div>
   );
 };
