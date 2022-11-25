@@ -49,11 +49,11 @@ const AllProductsCard = ({ pro }) => {
           </div>
           <div>
             <button className="btn btn-secondary gap-2 w-1/2">
-              Add to Card
+              Report peoduct
             </button>
-            <Link to={`/buy/${_id}`}>
+            <Link to={`/Book/${_id}`}>
               <button className="btn btn-accent w-1/2 gap-2  bg-blue-800">
-                Buy Now
+               Book now
               </button>
             </Link>
           </div>
