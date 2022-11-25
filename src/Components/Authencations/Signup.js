@@ -16,10 +16,13 @@ const Signup = () => {
   } = useForm();
 
   const { signupEmail, auth } = useContext(Authcontext);
+  
 
   //submite
   const onSubmit = (data) => {
     // sign up email and password
+    const { email, username, roll } = data;
+
     signupEmail(data.email, data.password)
       .then((res) => {
         const user = res.user;
@@ -28,16 +31,24 @@ const Signup = () => {
           displayName: data.username,
           photoURL: "https://i.ibb.co/ZJnwZhP/no.png",
         })
-          .then(() => {})
-          .catch((e) => {
-            
-          });
-      
-        toast.success('successfuly login !!')
+          .then(() => {
+            const useinformation = { email, username, roll };
+            fetch("http://localhost:8000/users", {
+              method: "POST",
+              headers:{
+                "content-type":"application/json"
+              },
+              body: JSON.stringify(useinformation)
+            }).then(res=> res.json()).then(data => {
+              console.log(data);
+            });
+          })
+          .catch((e) => {});
+
+        toast.success("successfuly login !!");
       })
       .catch((error) => {
-   
-        toast.error(error.message)
+        toast.error(error.message);
       });
   };
 
@@ -85,9 +96,8 @@ const Signup = () => {
             className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-blue-400"
             {...register("roll")}
           >
-            <option value="female">seller account</option>
-            <option value="male">seller buyers</option>
-           
+            <option value="Seller account">Seller account</option>
+            <option value="Buyers account">Buyers account</option>
           </select>
         </div>
         <div className="space-y-1 text-sm">

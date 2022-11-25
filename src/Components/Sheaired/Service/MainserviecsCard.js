@@ -21,8 +21,8 @@ const MainserviecsCard = ({ pr }) => {
           <h3 className="text-xl font-semibold text-white">{name}</h3>
 
           <Link to={`/services/${catacoruId}`}>
-            <button className="btn btn-primary bg-blue-900 w-full">
-              Button
+            <button className="btn mt-4  btn-primary bg-blue-900 w-full">
+              All products
             </button>
           </Link>
         </div>
