@@ -1,11 +1,15 @@
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import { useQuery } from "@tanstack/react-query";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Authcontext } from "../../../Context/Usercontext";
+import Modal from "../../pmantModal/Modal/Modal";
 import MyorderCard from "./MyorderCard";
 
 const Myorders = () => {
   const { roll } = useContext(Authcontext);
-  console.log(roll?.email);
+  const [modal, setModal] = useState(null);
+  const stripePromise = loadStripe(process.env.REACT_APP_pk);
 
   const { data = [], isLoading } = useQuery({
     queryKey: ["myorders", roll.email],
@@ -24,47 +28,38 @@ const Myorders = () => {
   }
 
 
-// update pay sinste 
+  const handelpment = (id) => {
+    setModal(id);
+  };
 
-const handelpment=(id)=>{
-
-
-
-  
-  console.log('okkkkk' , id);
-
-}
-
-
-
-  console.log(data);
+  // console.log("38", modal);
 
   return (
     <div>
       <h2 className="text-2xl  text-black p-6 font-bold">My Buyers</h2>
 
       <div>
+        <div className="overflow-x-auto bg-black w-full shadow-lg shadow-indigo-500/50">
+          <table className="table w-full">
+            <tbody>
+              {data.map((p) => (
+                <MyorderCard
+                  key={p._id}
+                  pr={p}
+                  handelpment={handelpment}
+                ></MyorderCard>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
-      <div className="overflow-x-auto bg-black w-full shadow-lg shadow-indigo-500/50">
-      <table className="table w-full">
-        
-        <tbody >
-        {data.map(p => <MyorderCard key={p._id} pr ={p} handelpment={handelpment}></MyorderCard>)}
-          
-        </tbody>
-      </table>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
+        <div>
+          {modal && (
+            <Elements stripe={stripePromise}>
+              <Modal modalId={modal._id} cprice={modal.Price} setModal={setModal} ></Modal>
+            </Elements>
+          )}
+        </div>
       </div>
     </div>
   );
