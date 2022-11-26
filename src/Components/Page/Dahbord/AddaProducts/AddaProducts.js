@@ -2,13 +2,14 @@ import { format } from "date-fns";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { Authcontext } from "../../../Context/Usercontext";
 
 const AddaProducts = () => {
   const { user } = useContext(Authcontext);
   const dat = new Date();
   const date = format(dat, "PP");
-
+  const navigate = useNavigate();
 
   const {
     register,
@@ -18,8 +19,6 @@ const AddaProducts = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-
-
     const productname = data.productname;
     const catocory = data.catocory;
     const price = data.price;
@@ -50,8 +49,6 @@ const AddaProducts = () => {
     })
       .then((res) => res.json())
       .then((imageData) => {
-        console.log(imageData);
-
         if (imageData.success) {
           const ued = {
             name: productname,
@@ -75,8 +72,10 @@ const AddaProducts = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-              toast.success("successfult add products");
-              console.log(data);
+              if (data.acknowledged) {
+                toast.success("successfult add products");
+                navigate("/services");
+              }
             });
         }
       });

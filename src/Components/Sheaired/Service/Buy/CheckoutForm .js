@@ -8,7 +8,7 @@ const CheckoutForm = ({ p }) => {
   const { user } = useContext(Authcontext);
   const dat = new Date();
   const date = format(dat, "PP");
-  const { Price, name, image } = p;
+  const { Price, name, image, emali } = p;
   const navegate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,7 +16,8 @@ const CheckoutForm = ({ p }) => {
     const number = form.number.value;
     const location = form.location.value;
     const update = {
-      email: user?.email,
+      useremail: user?.email,
+      productemail: emali,
       Price,
       name,
       image,

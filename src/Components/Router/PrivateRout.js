@@ -7,7 +7,7 @@ const PrivateRout = ({children}) => {
     
     if(loder){
         return <div>
-            <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-blue-400"></div>
+            <div className="w-16 mx-auto my-40 h-16 border-4 border-dashed rounded-full animate-spin dark:border-blue-400"></div>
         </div>
     }
     if(user?.uid){
