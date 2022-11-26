@@ -3,6 +3,7 @@ import Login from "../Authencations/Login";
 import Signup from "../Authencations/Signup";
 import DasbordLayout from "../Layout/DasbordLayout";
 import MainLayout from "../Layout/MainLayout";
+import Blog from "../Page/Blog/Blog";
 import AddaProducts from "../Page/Dahbord/AddaProducts/AddaProducts";
 import AllBuyers from "../Page/Dahbord/AllBuyers/AllBuyers";
 import AllSellers from "../Page/Dahbord/AllSellers/AllSellers";
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/signup", element: <Signup /> },
       { path: "/services", element: <MainSarvice /> },
+      { path: "/blog", element: <Blog /> },
       {
         path: "//services/:id",
         element: <AllProducts />,

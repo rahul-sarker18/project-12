@@ -24,7 +24,6 @@ const CheckoutForm = ({ p }) => {
       location,
       number,
     };
-    console.log(update);
     fetch("http://localhost:8000/books", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -32,7 +31,6 @@ const CheckoutForm = ({ p }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         toast.success("successFuly paent !!");
         navegate("/");
       });

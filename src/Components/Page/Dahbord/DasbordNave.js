@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from "react-router-dom";
+import { Authcontext } from '../../Context/Usercontext';
 
-const DasbordNave = () => {
+const DasbordNave = ({ee}) => {
+  
+
+
+console.log(ee);
+
   const manue = (
     <>
-      <li>
-        <NavLink to="/dasbord/Myorders">My orders</NavLink>
-      </li>
+    {
+      ee.roll ==="Seller account" &&  <li>
+      <NavLink to="/dasbord/Myorders">My orders</NavLink>
+    </li>
+    }
+     
       {/* buyers */}
-      <li>
+      {
+         ee.roll ==="Seller account" && <>
+         
+         <li>
         <NavLink to="/dasbord/AddAproduct">Add A product</NavLink>
       </li>
       <li>
@@ -17,8 +29,13 @@ const DasbordNave = () => {
       <li>
         <NavLink to="/dasbord/Mybuyers">My buyers</NavLink>
       </li>
+         </>
+      }
+     
       {/* admine */}
-      <li>
+      {
+        ee.roll ==="admin" && <>
+        <li>
         <NavLink to="/dasbord/AllSellers"> All Sellers</NavLink>
       </li>
       <li>
@@ -27,6 +44,9 @@ const DasbordNave = () => {
       <li>
         <NavLink to="/dasbord/ReportedItems">Reported Items</NavLink>
       </li>
+        </>
+      }
+      
     </>
   );
 
@@ -53,6 +73,7 @@ const DasbordNave = () => {
           </ul>
         </div>
       </div>
+      
     </div>
   );
 };

@@ -14,7 +14,6 @@ const auth = getAuth(app);
 
 const Usercontext = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [buyi, setBuyi] = useState(null);
   const provider = new GoogleAuthProvider();
   const [loder, SetLoder] = useState(true);
 
@@ -34,22 +33,19 @@ const Usercontext = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
   // user get
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (cruser) => {
-      setUser(cruser);
-      SetLoder(false);
+  useEffect( () =>{
+    const unsubscribe = onAuthStateChanged(auth, currentUser =>{
+        console.log('user observing');
+        setUser(currentUser);
+        SetLoder(false);
     });
-    return () => {
-      unsubscribe();
-    };
-  }, []);
 
+    return () => unsubscribe();
+}, [])
   const authInfo = {
     user,
     loder,
     auth,
-    buyi,
-    setBuyi,
     signupEmail,
     logemail,
     googlesubmite,

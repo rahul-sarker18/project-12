@@ -40,9 +40,7 @@ const Signup = () => {
               body: JSON.stringify(useinformation),
             })
               .then((res) => res.json())
-              .then((data) => {
-                console.log(data);
-              });
+              .then((data) => {});
           })
           .catch((e) => {});
 
@@ -57,10 +55,24 @@ const Signup = () => {
   const handelgoogle = () => {
     googlesubmite()
       .then((res) => {
-        const  user=res.user;
-        const {displayName:username ,email} =user
-        console.log(email , username);
-        toast.success("successfuly sign up !!");
+        const user = res.user;
+        const { displayName: username, email } = user;
+        const usersin = {
+          email,
+          username,
+        };
+
+        fetch("http://localhost:8000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(usersin),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            toast.success("successfuly sign up !!");
+          });
       })
       .catch((error) => {
         toast.error(error.message);
