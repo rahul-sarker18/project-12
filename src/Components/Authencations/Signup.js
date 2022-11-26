@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 
 import { updateProfile } from "firebase/auth";
@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { Authcontext } from "../Context/Usercontext";
 
 const Signup = () => {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -40,7 +41,9 @@ const Signup = () => {
               body: JSON.stringify(useinformation),
             })
               .then((res) => res.json())
-              .then((data) => {});
+              .then((data) => {
+                navigate('/')
+              });
           })
           .catch((e) => {});
 
@@ -60,6 +63,7 @@ const Signup = () => {
         const usersin = {
           email,
           username,
+          roll:'Buyers account'
         };
 
         fetch("http://localhost:8000/users", {
@@ -72,6 +76,7 @@ const Signup = () => {
           .then((res) => res.json())
           .then((data) => {
             toast.success("successfuly sign up !!");
+            navigate('/')
           });
       })
       .catch((error) => {

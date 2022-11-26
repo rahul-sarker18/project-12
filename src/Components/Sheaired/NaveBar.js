@@ -51,7 +51,7 @@ const NaveBar = () => {
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <Link to="/" className="btn btn-ghost normal-case text-xl">
-            daisyUI
+           <img src='https://i.ibb.co/5Wznsnx/reseler-removebg-preview.png' alt="" />
           </Link>
         </div>
 

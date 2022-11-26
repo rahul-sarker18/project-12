@@ -2,10 +2,13 @@ import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Authcontext } from '../Context/Usercontext';
 
 const Login = () => {
+  const location =useLocation()
+  const navigate = useNavigate()
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -16,6 +19,7 @@ const Login = () => {
   const onSubmit = (data) => {
     logemail(data.email, data.password)
       .then((res) => {
+        navigate(from, { replace: true })
        
         toast.success('successfuly login !!')
       })

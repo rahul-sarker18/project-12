@@ -13,9 +13,12 @@ import Myorders from "../Page/Dahbord/Myorders/Myorders";
 import MyProducts from "../Page/Dahbord/MyProducts/MyProducts";
 import ReportedItems from "../Page/Dahbord/ReportedItems/ReportedItems";
 import Home from "../Page/Home/Home";
+import Error from "../Sheaired/Error/Error";
 import AllProducts from "../Sheaired/Service/AllProducts/AllProducts";
 import Byu from "../Sheaired/Service/Buy/Byu";
 import MainSarvice from "../Sheaired/Service/MainSarvice";
+import AdmineRoute from "./AdmineRoute";
+import MyselerRout from "./MyselerRout";
 import PrivateRout from "./PrivateRout";
 
 const router = createBrowserRouter([
@@ -37,23 +40,73 @@ const router = createBrowserRouter([
       {
         path: "/Book/:id",
         element: <Byu />,
-        loader: ({ params }) => fetch(`http://localhost:8000/books/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:8000/books/${params.id}`),
       },
     ],
   },
   {
     path: "/dasbord",
-    element: <PrivateRout><DasbordLayout /></PrivateRout> ,
+    element: (
+      <PrivateRout>
+        <DasbordLayout />
+      </PrivateRout>
+    ),
     children: [
       { path: "/dasbord/Myorders", element: <Myorders /> },
-      { path: "/dasbord/AddAproduct", element: <AddaProducts /> },
-      { path: "/dasbord/MyProducts", element: <MyProducts /> },
-      { path: "/dasbord/Mybuyers", element: <MyBuyers /> },
-      { path: "/dasbord/AllSellers", element: <AllSellers /> },
-      { path: "/dasbord/AllBuyers", element: <AllBuyers /> },
-      { path: "/dasbord/ReportedItems", element: <ReportedItems /> },
+
+      {
+        path: "/dasbord/AddAproduct",
+        element: (
+          <MyselerRout>
+            <AddaProducts />
+          </MyselerRout>
+        ),
+      },
+      {
+        path: "/dasbord/MyProducts",
+        element: (
+          <MyselerRout>
+            <MyProducts />
+          </MyselerRout>
+        ),
+      },
+      {
+        path: "/dasbord/Mybuyers",
+        element: (
+          <MyselerRout>
+            <MyBuyers />
+          </MyselerRout>
+        ),
+      },
+
+      {
+        path: "/dasbord/AllSellers",
+        element: (
+          <AdmineRoute>
+            <AllSellers />
+          </AdmineRoute>
+        ),
+      },
+      {
+        path: "/dasbord/AllBuyers",
+        element: (
+          <AdmineRoute>
+            <AllBuyers />
+          </AdmineRoute>
+        ),
+      },
+      {
+        path: "/dasbord/ReportedItems",
+        element: (
+          <AdmineRoute>
+            <ReportedItems />
+          </AdmineRoute>
+        ),
+      },
     ],
   },
+  { path: "*", element: <Error /> },
 ]);
 
 export default router;

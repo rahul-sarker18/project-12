@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Slidecards = () => {
     const [slide ,setslide] =useState([])
@@ -29,7 +30,9 @@ const Slidecards = () => {
                   assumenda excepturi exercitationem quasi. In deleniti eaque
                   aut repudiandae et a id nisi.
                 </p>
+                <Link to='/services'>
                 <button className="btn btn-primary">Get Started</button>
+                </Link>
               </div>
             </div>
           </div>

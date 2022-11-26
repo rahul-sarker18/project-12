@@ -8,43 +8,45 @@ const DasbordNave = () => {
 
   const manue = (
     <>
-    {
-      roll?.roll ==="Seller account" &&  <li>
-      <NavLink to="/dasbord/Myorders">My orders</NavLink>
-    </li>
-    }
-     
-      {/* buyers */}
-      {
-         roll?.roll ==="Seller account" && <>
-         
-         <li>
-        <NavLink to="/dasbord/AddAproduct">Add A product</NavLink>
-      </li>
-      <li>
-        <NavLink to="/dasbord/MyProducts">My Products</NavLink>
-      </li>
-      <li>
-        <NavLink to="/dasbord/Mybuyers">My buyers</NavLink>
-      </li>
-         </>
-      }
-     
-      {/* admine */}
-      {
-        roll?.roll ==="admin" && <>
+      {roll?.roll === "Buyers account" && (
         <li>
-        <NavLink to="/dasbord/AllSellers"> All Sellers</NavLink>
-      </li>
-      <li>
-        <NavLink to="/dasbord/AllBuyers">All Buyers</NavLink>
-      </li>
-      <li>
-        <NavLink to="/dasbord/ReportedItems">Reported Items</NavLink>
-      </li>
+          <NavLink to="/dasbord/Myorders">My orders</NavLink>
+        </li>
+      )}
+
+      {/* buyers */}
+      {roll?.roll === "Seller account" && (
+        <>
+          <li>
+            <NavLink to="/dasbord/Myorders">My orders</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/dasbord/AddAproduct">Add A product</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dasbord/MyProducts">My Products</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dasbord/Mybuyers">My buyers</NavLink>
+          </li>
         </>
-      }
-      
+      )}
+
+      {/* admine */}
+      {roll?.roll === "admin" && (
+        <>
+          <li>
+            <NavLink to="/dasbord/AllSellers"> All Sellers</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dasbord/AllBuyers">All Buyers</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dasbord/ReportedItems">Reported Items</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 

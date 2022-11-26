@@ -1,7 +1,6 @@
 import React from "react";
 
 const MyorderCard = ({ pr , handelpment }) => {
-  console.log(pr);
 
   const { image, name, date, useremail, Price, productemail, pmant } = pr;
 
