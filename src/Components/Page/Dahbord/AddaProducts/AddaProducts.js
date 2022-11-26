@@ -83,7 +83,7 @@ const AddaProducts = () => {
 
   return (
     <div className="w-full max-w-md p-8 mx-auto my-5 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
-      <h1 className="text-2xl font-bold text-center">Login</h1>
+      <h1 className="text-2xl font-bold text-center">Add a Product</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="space-y-6 ng-untouched ng-pristine ng-valid"
@@ -94,6 +94,7 @@ const AddaProducts = () => {
           </label>
           <input
             type="text"
+            required
             name="productname"
             {...register("productname")}
             id="productname"
@@ -108,6 +109,7 @@ const AddaProducts = () => {
             catocory
           </label>
           <select
+          
             {...register("catocory")}
             name="catocory"
             className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-blue-400"
@@ -125,7 +127,7 @@ const AddaProducts = () => {
             </label>
             <input
               required
-              type="text"
+              type="number"
               {...register("price")}
               name="price"
               id="price"
@@ -140,7 +142,7 @@ const AddaProducts = () => {
             </label>
             <input
               required
-              type="text"
+              type="number"
               {...register("originalprice")}
               name="originalprice"
               id="originalprice"

@@ -6,9 +6,6 @@ import { Authcontext } from '../../Context/Usercontext';
 const DasbordNave = () => {
   const {roll} = useContext(Authcontext)
 
-
-console.log(roll);
-
   const manue = (
     <>
     {
@@ -54,7 +51,7 @@ console.log(roll);
   return (
     <div>
       <div className="drawer-side hidden lg:block ">
-        <ul className="menu p-4 lg:w-64 w-[100vw] lg:block flex  text-black  bg-slate-400">
+        <ul className="menu p-4 lg:w-64 w-[100vw] h-[100vh] lg:block flex  text-black  bg-slate-400">
           {/* simple usere */}
 
           {manue}

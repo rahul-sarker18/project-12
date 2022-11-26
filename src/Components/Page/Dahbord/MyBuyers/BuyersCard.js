@@ -2,7 +2,6 @@ import React from "react";
 import { CiCalendarDate, CiLocationOn } from "react-icons/ci";
 
 const BuyersCard = ({ byr }) => {
-  console.log(byr);
   const { name, date, useremail, number, location, image } = byr;
   return (
     <div>

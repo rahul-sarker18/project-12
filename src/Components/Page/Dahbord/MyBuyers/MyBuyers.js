@@ -19,12 +19,12 @@ const MyBuyers = () => {
     }
     
     return (
-        <div>
-            {
-                data.map(d =>  <BuyersCard key={d._id} byr={d}  />)
-            }
-           
-        </div>
+      <div>
+        <h2 className="text-2xl  text-black p-6 font-bold">My Buyers</h2>
+        {data.map((d) => (
+          <BuyersCard key={d._id} byr={d} />
+        ))}
+      </div>
     );
 };
 

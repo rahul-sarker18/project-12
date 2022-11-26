@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { Outlet } from "react-router-dom";
-import { Authcontext } from "../Context/Usercontext";
+
 import DasbordNave from "../Page/Dahbord/DasbordNave";
 import NaveBar from "../Sheaired/NaveBar";
 
