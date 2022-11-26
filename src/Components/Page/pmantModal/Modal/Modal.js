@@ -2,7 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-const Modal = ({ modalId, cprice, setModal }) => {
+const Modal = ({ modalId, cprice, setModal , refetch }) => {
   const [errord, setErrord] = useState("");
   const stripe = useStripe();
   const elements = useElements();
@@ -72,7 +72,7 @@ const Modal = ({ modalId, cprice, setModal }) => {
         .then((res) => res.json())
         .then((data) => {
           setModal("");
-
+          refetch()
           toast.success("successfull pemant !!");
         });
 

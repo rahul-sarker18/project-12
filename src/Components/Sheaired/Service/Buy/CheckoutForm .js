@@ -6,6 +6,7 @@ import { Authcontext } from "../../../Context/Usercontext";
 
 const CheckoutForm = ({ p }) => {
   const { user } = useContext(Authcontext);
+  console.log(user);
   const dat = new Date();
   const date = format(dat, "PP");
   const { Price, name, image, emali } = p;
@@ -17,6 +18,8 @@ const CheckoutForm = ({ p }) => {
     const location = form.location.value;
     const update = {
       useremail: user?.email,
+      username: user?.displayName,
+      userPhotoUrl: user?.photoURL,
       productemail: emali,
       Price,
       name,
@@ -101,26 +104,7 @@ const CheckoutForm = ({ p }) => {
             className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-blue-400"
           />
         </div>
-        {/* <div className="space-y-1 text-sm text-white">
-          <CardElement
-            options={{
-              style: {
-                base: {
-                  fontSize: "16px",
-                  color: "#e6efff",
-                  "::placeholder": {
-                    color: "#e6efff",
-                  },
-                },
-                invalid: {
-                  color: "#e6efff",
-                },
-              },
-            }}
-          />
-        </div>
-
-        <p className="text-red-600">{error}</p> */}
+      
 
         <button
           className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-blue-400"

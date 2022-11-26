@@ -32,6 +32,8 @@ const MyorderCard = ({ pr , handelpment }) => {
       </td>
       <th>
         {pmant ? (
+          <label className="text-red-300">PAYED</label>
+        ) : (
           <label
             htmlFor="my-modal-3"
             onClick={() => handelpment(pr)}
@@ -39,8 +41,6 @@ const MyorderCard = ({ pr , handelpment }) => {
           >
             PAY
           </label>
-        ) : (
-          <label >PAYED</label>
         )}
       </th>
     </tr>

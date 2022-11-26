@@ -24,17 +24,25 @@ const MyProducts = () => {
   }
   //delet products
   const handeldelet = (id) => {
+
+    const confirmation = window.confirm('are you soure')
+    console.log(confirmation);
+
+    if(confirmation){
+
+      fetch(`http://localhost:8000/mypro/${id}` , {
+        method:'DELETE'
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.deletedCount){
+          toast.success('Delete successfull !!!')
+        }
+      })
+      refetch()
+    }
    
-    fetch(`http://localhost:8000/mypro/${id}` , {
-      method:'DELETE'
-    })
-    .then(res => res.json())
-    .then(data => {
-      if(data.deletedCount){
-        toast.success('Delete successfull !!!')
-      }
-    })
-    refetch()
+    
   };
 
   return (

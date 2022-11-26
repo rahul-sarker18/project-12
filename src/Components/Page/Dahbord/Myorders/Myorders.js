@@ -11,7 +11,7 @@ const Myorders = () => {
   const [modal, setModal] = useState(null);
   const stripePromise = loadStripe(process.env.REACT_APP_pk);
 
-  const { data = [], isLoading } = useQuery({
+  const { data = [], isLoading  , refetch} = useQuery({
     queryKey: ["myorders", roll.email],
     queryFn: async () => {
       const res = await fetch(
@@ -30,6 +30,7 @@ const Myorders = () => {
 
   const handelpment = (id) => {
     setModal(id);
+    refetch()
   };
 
   // console.log("38", modal);
@@ -56,7 +57,7 @@ const Myorders = () => {
         <div>
           {modal && (
             <Elements stripe={stripePromise}>
-              <Modal modalId={modal._id} cprice={modal.Price} setModal={setModal} ></Modal>
+              <Modal refetch={refetch} modalId={modal._id} cprice={modal.Price} setModal={setModal} ></Modal>
             </Elements>
           )}
         </div>

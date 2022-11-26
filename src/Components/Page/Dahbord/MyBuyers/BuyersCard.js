@@ -2,20 +2,21 @@ import React from "react";
 import { CiCalendarDate, CiLocationOn } from "react-icons/ci";
 
 const BuyersCard = ({ byr }) => {
-  const { name, date, useremail, number, location, image } = byr;
+  const { username, date, useremail, number, location, userPhotoUrl } = byr;
+  console.log(byr);
   return (
     <div>
       <div className=" p-8 sm:flex sm:space-x-6 dark:bg-gray-900 border-b-4 border-indigo-100 dark:text-gray-100">
         <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
           <img
-            src={image}
+            src={userPhotoUrl}
             alt=""
             className="object-cover object-center w-full h-full rounded dark:bg-gray-500"
           />
         </div>
         <div className="flex flex-col space-y-4">
           <div>
-            <h2 className="text-2xl font-semibold">{name}</h2>
+            <h2 className="text-2xl font-semibold">{username}</h2>
 
           
           </div>

@@ -1,7 +1,28 @@
 import React from "react";
+import toast from "react-hot-toast";
+import { FcAdvertising } from "react-icons/fc";
 
-const MyproductsCard = ({ all , handeldelet }) => {
-  const { name, date, image , _id } = all;
+const MyproductsCard = ({ all, handeldelet }) => {
+  const { name, date, image, _id } = all;
+
+  const handeladd = (id) => {
+    console.log("object", id);
+
+    fetch(`http://localhost:8000/advertise/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Add advertise !!!");
+        }
+      });
+  };
+
   return (
     <div className="flex flex-col   border-b-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100">
       <ul className="flex flex-col divide-y divide-gray-700">
@@ -16,15 +37,21 @@ const MyproductsCard = ({ all , handeldelet }) => {
               <div className="flex justify-between w-full pb-2 space-x-2">
                 <div className="space-y-1">
                   <h3 className="text-lg font-semibold leading-snug sm:pr-8">
-                  <span className="font-bold text-green-600">Product Name : </span> {name}
+                    <span className="font-bold text-green-600">
+                      Product Name :{" "}
+                    </span>{" "}
+                    {name}
                   </h3>
-                  <p className="text-sm dark:text-gray-400"><span className="font-bold">Date : </span>{date}</p>
+                  <p className="text-sm dark:text-gray-400">
+                    <span className="font-bold">Date : </span>
+                    {date}
+                  </p>
                 </div>
               </div>
               <div className="flex text-sm divide-x">
                 <button
                   type="button"
-                  onClick={()=>handeldelet(_id)}
+                  onClick={() => handeldelet(_id)}
                   className="flex items-center px-2 py-1 pl-0 space-x-1"
                 >
                   <svg
@@ -39,6 +66,15 @@ const MyproductsCard = ({ all , handeldelet }) => {
                     <path d="M328,88V40c0-13.458-9.488-24-21.6-24H205.6C193.488,16,184,26.542,184,40V88H64v32H448V88ZM216,48h80V88H216Z"></path>
                   </svg>
                   <span>Remove</span>
+                </button>
+
+                <button
+                  onClick={() => handeladd(_id)}
+                  type="button"
+                  className="flex items-center px-2 py-1 space-x-1"
+                >
+                  <FcAdvertising className="text-xl" />
+                  <span>Add advertise</span>
                 </button>
               </div>
             </div>
