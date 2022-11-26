@@ -14,6 +14,7 @@ const auth = getAuth(app);
 
 const Usercontext = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [roll, setRoll] = useState(null);
   const provider = new GoogleAuthProvider();
   const [loder, SetLoder] = useState(true);
 
@@ -44,6 +45,8 @@ const Usercontext = ({ children }) => {
 }, [])
   const authInfo = {
     user,
+    roll,
+    setRoll,
     loder,
     auth,
     signupEmail,

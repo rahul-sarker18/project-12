@@ -1,12 +1,14 @@
-import { format } from 'date-fns';
-import React, { useContext, useState } from "react";
+import { format } from "date-fns";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { Authcontext } from "../../../Context/Usercontext";
 
 const AddaProducts = () => {
   const { user } = useContext(Authcontext);
   const dat = new Date();
   const date = format(dat, "PP");
+
 
   const {
     register,
@@ -16,7 +18,7 @@ const AddaProducts = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    // console.log(data);
+
 
     const productname = data.productname;
     const catocory = data.catocory;
@@ -40,30 +42,44 @@ const AddaProducts = () => {
 
     const formData = new FormData();
     formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?key=2269f2e7a41759857a085f581d8f873e`;
+    const url =
+      "https://api.imgbb.com/1/upload?key=2269f2e7a41759857a085f581d8f873e";
     fetch(url, {
       method: "POST",
       body: formData,
     })
       .then((res) => res.json())
       .then((imageData) => {
-        const ued = {
-          productname,
-          catocory,
-          price,
-          originalprice,
-          yearsof,
-          location,
-          date,
-          id: cotogory,
-          emali: user?.email,
-          img: imageData.data.url,
-        };
-        console.log(ued);
-      
-      });
+        console.log(imageData);
 
-   
+        if (imageData.success) {
+          const ued = {
+            name: productname,
+            catocory,
+            Price: price,
+            originalprice,
+            yearsof,
+            location,
+            date,
+            id: cotogory,
+            emali: user?.email,
+            image: imageData.data.url,
+          };
+
+          fetch("http://localhost:8000/allProduct", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(ued),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              toast.success("successfult add products");
+              console.log(data);
+            });
+        }
+      });
   };
 
   return (

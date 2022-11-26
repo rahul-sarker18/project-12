@@ -1,24 +1,25 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from "react-router-dom";
 import { Authcontext } from '../../Context/Usercontext';
 
-const DasbordNave = ({ee}) => {
-  
+
+const DasbordNave = () => {
+  const {roll} = useContext(Authcontext)
 
 
-console.log(ee);
+console.log(roll);
 
   const manue = (
     <>
     {
-      ee.roll ==="Seller account" &&  <li>
+      roll?.roll ==="Seller account" &&  <li>
       <NavLink to="/dasbord/Myorders">My orders</NavLink>
     </li>
     }
      
       {/* buyers */}
       {
-         ee.roll ==="Seller account" && <>
+         roll?.roll ==="Seller account" && <>
          
          <li>
         <NavLink to="/dasbord/AddAproduct">Add A product</NavLink>
@@ -34,7 +35,7 @@ console.log(ee);
      
       {/* admine */}
       {
-        ee.roll ==="admin" && <>
+        roll?.roll ==="admin" && <>
         <li>
         <NavLink to="/dasbord/AllSellers"> All Sellers</NavLink>
       </li>
