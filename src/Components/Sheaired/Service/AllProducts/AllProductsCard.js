@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { BiRupee } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { TiTick, TiTickOutline } from "react-icons/ti";
+import { TiTick } from "react-icons/ti";
 import ReportModal from "./ReportModal";
+
 
 const AllProductsCard = ({ pro }) => {
   const [veryf, setveryf] = useState({});
@@ -89,19 +90,21 @@ const AllProductsCard = ({ pro }) => {
               <ReportModal id={reportModa} setreportModa={setreportModa} />
             )}
 
-            <label
-              htmlFor="my-modal-3"
-              onClick={() => handelreport(_id)}
-              className="btn btn-secondary gap-2 w-1/2"
-            >
-              Report peoduct
-            </label>
-
-            <Link to={`/Book/${_id}`}>
-              <button className="btn btn-accent w-1/2 gap-2  bg-blue-800">
-                Book now
-              </button>
-            </Link>
+       
+              <label
+                htmlFor="my-modal-3"
+                onClick={() => handelreport(_id)}
+                className="btn btn-secondary gap-2 w-1/2"
+              >
+                Report peoduct
+              </label>
+          
+              <Link to={`/Book/${_id}`}>
+                <button className="btn btn-accent w-1/2 gap-2  bg-blue-800">
+                  Book now
+                </button>
+              </Link>
+           
           </div>
         </div>
       </div>

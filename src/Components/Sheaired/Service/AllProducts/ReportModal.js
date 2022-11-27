@@ -1,5 +1,6 @@
 import React from "react";
 import toast from "react-hot-toast";
+import PrivateRout from "../../../Router/PrivateRout";
 
 const ReportModal = ({ setreportModa, id }) => {
   const handel = (e) => {
@@ -38,13 +39,16 @@ const ReportModal = ({ setreportModa, id }) => {
 
           <form onSubmit={handel}>
             <textarea
-            name="rep"
+              name="rep"
               className="textarea w-full mt-7 textarea-primary"
               placeholder="report "
             ></textarea>
-            <button className="btn btn-secondary mx-auto text-center">
-              Add Report
-            </button>
+
+            <PrivateRout>
+              <button className="btn btn-secondary mx-auto text-center">
+                Add Report
+              </button>
+            </PrivateRout>
           </form>
         </div>
       </div>

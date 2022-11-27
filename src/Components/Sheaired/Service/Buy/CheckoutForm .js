@@ -3,10 +3,11 @@ import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { Authcontext } from "../../../Context/Usercontext";
+import PrivateRout from "../../../Router/PrivateRout";
 
 const CheckoutForm = ({ p }) => {
   const { user } = useContext(Authcontext);
- 
+
   const dat = new Date();
   const date = format(dat, "PP");
   const { Price, name, image, emali, _id } = p;
@@ -121,13 +122,14 @@ const CheckoutForm = ({ p }) => {
             className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-blue-400"
           />
         </div>
-
-        <button
-          className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-blue-400"
-          type="submit"
-        >
-          Book Now
-        </button>
+        <PrivateRout>
+          <button
+            className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-blue-400"
+            type="submit"
+          >
+            Book Now
+          </button>
+        </PrivateRout>
       </form>
     </div>
   );
