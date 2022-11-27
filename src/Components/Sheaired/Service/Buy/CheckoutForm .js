@@ -6,7 +6,7 @@ import { Authcontext } from "../../../Context/Usercontext";
 
 const CheckoutForm = ({ p }) => {
   const { user } = useContext(Authcontext);
-  console.log(user);
+ 
   const dat = new Date();
   const date = format(dat, "PP");
   const { Price, name, image, emali } = p;
@@ -29,7 +29,7 @@ const CheckoutForm = ({ p }) => {
       location,
       number,
     };
-    fetch("http://localhost:8000/books", {
+    fetch("https://mobil-sarver.vercel.app/books", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(update),

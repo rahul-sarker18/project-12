@@ -8,7 +8,9 @@ const MyBuyers = () => {
     const { data =[] , isLoading } = useQuery({
         queryKey: ['booking' , roll?.email],
         queryFn: async () => {
-          const res = await fetch(`http://localhost:8000/booking?email=${roll?.email}`);
+          const res = await fetch(
+            `https://mobil-sarver.vercel.app/booking?email=${roll?.email}`
+          );
           const data =await res.json();
           return data;
         },

@@ -36,7 +36,7 @@ const Usercontext = ({ children }) => {
   // user get
   useEffect( () =>{
     const unsubscribe = onAuthStateChanged(auth, currentUser =>{
-        console.log('user observing');
+        
         setUser(currentUser);
         SetLoder(false);
     });

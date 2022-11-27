@@ -4,7 +4,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
 const Advitisment = ({ pr }) => {
-  console.log(pr);
+
 
   const {
     name,

@@ -7,7 +7,7 @@ import { Authcontext } from "../../../Context/Usercontext";
 
 const AddaProducts = () => {
   const { user } = useContext(Authcontext);
-  console.log(user);
+  
   const dat = new Date();
   const date = format(dat, "PP");
   const navigate = useNavigate();
@@ -66,7 +66,7 @@ const AddaProducts = () => {
             image: imageData.data.url,
           };
 
-          fetch("http://localhost:8000/allProduct", {
+          fetch("https://mobil-sarver.vercel.app/allProduct", {
             method: "POST",
             headers: {
               "content-type": "application/json",

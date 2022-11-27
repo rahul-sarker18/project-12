@@ -10,7 +10,7 @@ const Modal = ({ modalId, cprice, setModal , refetch }) => {
   const [clientSecret, setClientSecret] = useState("");
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:8000/create-payment-intent", {
+    fetch("https://mobil-sarver.vercel.app/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ price: cprice }),
@@ -39,7 +39,6 @@ const Modal = ({ modalId, cprice, setModal , refetch }) => {
 
     if (error) {
       setErrord(error.message);
-      console.log("[error]", error);
     } else {
       setErrord("");
     }
@@ -57,13 +56,11 @@ const Modal = ({ modalId, cprice, setModal , refetch }) => {
     );
 
     if (errors) {
-      console.log("errors", errors);
       setErrord(error.message);
     }
 
-
     if (paymentIntent.status) {
-      fetch(`http://localhost:8000/bokingd/${modalId}`, {
+      fetch(`https://mobil-sarver.vercel.app/bokingd/${modalId}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -72,10 +69,9 @@ const Modal = ({ modalId, cprice, setModal , refetch }) => {
         .then((res) => res.json())
         .then((data) => {
           setModal("");
-          refetch()
+          refetch();
           toast.success("successfull pemant !!");
         });
-
     }
   };
 

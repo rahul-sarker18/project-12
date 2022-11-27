@@ -6,9 +6,7 @@ const MyproductsCard = ({ all, handeldelet }) => {
   const { name, date, image, _id } = all;
 
   const handeladd = (id) => {
-    console.log("object", id);
-
-    fetch(`http://localhost:8000/advertise/${id}`, {
+    fetch(`https://mobil-sarver.vercel.app/advertise/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -16,7 +14,6 @@ const MyproductsCard = ({ all, handeldelet }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("Add advertise !!!");
         }

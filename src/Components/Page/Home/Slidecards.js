@@ -5,9 +5,9 @@ const Slidecards = () => {
     const [slide ,setslide] =useState([])
 
     useState(()=>{
-        fetch('http://localhost:8000/allCatagory')
-        .then(res => res.json())
-        .then(data => setslide(data))
+        fetch("https://mobil-sarver.vercel.app/allCatagory")
+          .then((res) => res.json())
+          .then((data) => setslide(data));
     },[])
     return (
         <div>

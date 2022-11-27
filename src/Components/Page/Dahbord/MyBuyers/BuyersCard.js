@@ -3,7 +3,7 @@ import { CiCalendarDate, CiLocationOn } from "react-icons/ci";
 
 const BuyersCard = ({ byr }) => {
   const { username, date, useremail, number, location, userPhotoUrl } = byr;
-  console.log(byr);
+ 
   return (
     <div>
       <div className=" p-8 sm:flex sm:space-x-6 dark:bg-gray-900 border-b-4 border-indigo-100 dark:text-gray-100">

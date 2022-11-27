@@ -13,7 +13,7 @@ function App() {
     queryKey: ["users", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:8000/users?email=${user?.email}`
+        `https://mobil-sarver.vercel.app/users?email=${user?.email}`
       );
       const data = await res.json();
       return data;

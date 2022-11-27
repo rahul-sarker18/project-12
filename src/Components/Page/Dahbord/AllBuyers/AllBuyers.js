@@ -10,7 +10,7 @@ const AllBuyers = () => {
   } = useQuery({
     queryKey: [],
     queryFn: async () => {
-      const res = await fetch("http://localhost:8000/allbuyers");
+      const res = await fetch("https://mobil-sarver.vercel.app/allbuyers");
       const data = await res.json();
       return data;
     },
@@ -24,19 +24,18 @@ const AllBuyers = () => {
   const handeldelete = (id) => {
     const confrim = window.confirm("Are you soure");
     if (confrim) {
-      fetch(`http://localhost:8000/seler/${id}`, {
+      fetch(`https://mobil-sarver.vercel.app/seler/${id}`, {
         method: "DELETE",
-        headers:{
-            'content-type':'application/json'
-        }
-      }).then(res => res.json())
-      .then(daatinfo => {
-      
-        toast.success('Delete successfull !!')
-          refetch()
+        headers: {
+          "content-type": "application/json",
+        },
       })
+        .then((res) => res.json())
+        .then((daatinfo) => {
+          toast.success("Delete successfull !!");
+          refetch();
+        });
     }
-   
   };
 
 

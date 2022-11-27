@@ -1,20 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { BiRupee } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { TiTick, TiTickOutline } from "react-icons/ti";
+import ReportModal from "./ReportModal";
 
 const AllProductsCard = ({ pro }) => {
-  const { name, Price,  location, originalprice, yearsof, _id , image , postimg ,username , date} = pro;
-  
+  const [veryf, setveryf] = useState({});
+  const [reportModa, setreportModa] = useState("");
+  const {
+    name,
+    Price,
+    location,
+    originalprice,
+    yearsof,
+    _id,
+    image,
+    postimg,
+    username,
+    date,
+    emali,
+  } = pro;
+
+  useEffect(() => {
+    fetch(`http://localhost:8000/uservery?email=${emali}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setveryf(data);
+      });
+  }, [emali]);
+
+
+  const { varefy } = veryf;
+
+  // report
+  const handelreport = (id) => {
+    setreportModa(id);
+  };
+
   return (
     <div>
       <div className="flex mx-auto flex-col max-w-xl p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 relative">
           <img
             alt=""
             src={postimg}
             className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500"
           />
+          {varefy && (
+            <TiTick className=" absolute text-3xl left-4 top-5 text-blue-700" />
+          )}
+
           <div className="flex flex-col space-y-1">
             <span className="text-sm font-semibold">{username}</span>
             <span className="text-xs dark:text-gray-400">{date}</span>
@@ -48,12 +84,20 @@ const AllProductsCard = ({ pro }) => {
             </p>
           </div>
           <div>
-            <button className="btn btn-secondary gap-2 w-1/2">
+            {reportModa && <ReportModal id={reportModa} setreportModa={setreportModa} />}
+
+            <label
+              htmlFor="my-modal-3"
+              onClick={() => handelreport( _id)}
+              className="btn btn-secondary gap-2 w-1/2"
+            >
+        
               Report peoduct
-            </button>
+            </label>
+
             <Link to={`/Book/${_id}`}>
               <button className="btn btn-accent w-1/2 gap-2  bg-blue-800">
-               Book now
+                Book now
               </button>
             </Link>
           </div>

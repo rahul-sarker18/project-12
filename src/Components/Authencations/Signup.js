@@ -33,7 +33,7 @@ const Signup = () => {
         })
           .then(() => {
             const useinformation = { email, username, roll };
-            fetch("http://localhost:8000/users", {
+            fetch("https://mobil-sarver.vercel.app/users", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -42,7 +42,7 @@ const Signup = () => {
             })
               .then((res) => res.json())
               .then((data) => {
-                navigate('/')
+                navigate("/");
               });
           })
           .catch((e) => {});
@@ -63,10 +63,10 @@ const Signup = () => {
         const usersin = {
           email,
           username,
-          roll:'Buyers account'
+          roll: "Buyers account",
         };
 
-        fetch("http://localhost:8000/users", {
+        fetch("https://mobil-sarver.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -76,7 +76,7 @@ const Signup = () => {
           .then((res) => res.json())
           .then((data) => {
             toast.success("successfuly sign up !!");
-            navigate('/')
+            navigate("/");
           });
       })
       .catch((error) => {

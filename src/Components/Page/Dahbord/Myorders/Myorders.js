@@ -15,7 +15,7 @@ const Myorders = () => {
     queryKey: ["myorders", roll.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:8000/myorders?email=${roll.email}`
+        `https://mobil-sarver.vercel.app/myorders?email=${roll.email}`
       );
       const data = await res.json();
       return data;
@@ -33,7 +33,7 @@ const Myorders = () => {
     refetch()
   };
 
-  // console.log("38", modal);
+
 
   return (
     <div>

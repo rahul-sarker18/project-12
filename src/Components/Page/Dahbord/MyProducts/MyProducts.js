@@ -7,11 +7,15 @@ import MyproductsCard from "./MyproductsCard";
 const MyProducts = () => {
   const { roll } = useContext(Authcontext);
 
-  const { data = [], isLoading  , refetch} = useQuery({
+  const {
+    data = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["myallProducts", roll?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:8000/mypro?email=${roll?.email}`
+        `https://mobil-sarver.vercel.app/mypro?email=${roll?.email}`
       );
       const data = await res.json();
       return data;
@@ -24,25 +28,21 @@ const MyProducts = () => {
   }
   //delet products
   const handeldelet = (id) => {
+    const confirmation = window.confirm("are you soure");
 
-    const confirmation = window.confirm('are you soure')
-    console.log(confirmation);
-
-    if(confirmation){
-
-      fetch(`http://localhost:8000/mypro/${id}` , {
-        method:'DELETE'
+    if (confirmation) {
+      fetch(`https://mobil-sarver.vercel.app/mypro/${id}`, {
+        method: "DELETE",
       })
-      .then(res => res.json())
-      .then(data => {
-        if(data.deletedCount){
-          toast.success('Delete successfull !!!')
-        }
-      })
-      refetch()
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount) {
+            toast.success("Delete successfull !!!");
+            refetch();
+          }
+        });
+      refetch();
     }
-   
-    
   };
 
   return (

@@ -35,13 +35,13 @@ const router = createBrowserRouter([
         path: "/services/:id",
         element: <AllProducts />,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/allProducts/${params.id}`),
+          fetch(`https://mobil-sarver.vercel.app/allProducts/${params.id}`),
       },
       {
         path: "/Book/:id",
         element: <Byu />,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/books/${params.id}`),
+          fetch(`https://mobil-sarver.vercel.app/books/${params.id}`),
       },
     ],
   },

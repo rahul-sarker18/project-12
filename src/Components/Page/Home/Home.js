@@ -2,24 +2,20 @@ import React, { useEffect, useState } from "react";
 import Extrapage from "../../Extrapage/Extrapage";
 import Advitisment from "./Advitisment/Advitisment";
 import Slidecards from "./Slidecards";
-import {
-  BsArrow90DegDown,
-  BsArrow90DegLeft,
-  BsFillArrowDownSquareFill,
-} from "react-icons/bs";
+import { BsArrow90DegDown, BsArrow90DegLeft } from "react-icons/bs";
 import MainSarvice from "../../Sheaired/Service/MainSarvice";
 
 const Home = () => {
   const [add, setadd] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/advatise")
+    fetch("https://mobil-sarver.vercel.app/advatise")
       .then((res) => res.json())
       .then((data) => {
         setadd(data);
       }, []);
   });
-  console.log(add);
+ 
 
   return (
     <div>
