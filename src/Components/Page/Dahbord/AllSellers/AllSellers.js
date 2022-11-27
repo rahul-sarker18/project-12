@@ -41,6 +41,27 @@ const AllSellers = () => {
     }
   };
 
+  const handelvaryfid=(email)=>{
+    // console.log(email);
+    const confrim = window.confirm("Are you soure");
+    if (confrim) {
+      fetch(`http://localhost:8000/allseler?email=${email}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((daatinfo) => {
+          toast.success("VARYFID successfull !!");
+
+          refetch();
+        });
+    }
+
+
+  }
+
   return (
     <div>
       <h2 className="text-2xl  text-black p-6 font-bold">My saller</h2>
@@ -52,6 +73,7 @@ const AllSellers = () => {
               <th>NO</th>
               <th>Name</th>
               <th>Email</th>
+              <th>Varefy</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -61,6 +83,17 @@ const AllSellers = () => {
                 <th>{i + 1}</th>
                 <td>{p.username}</td>
                 <td>{p.email}</td>
+                <td>
+                  {
+                    p?.varefy ? <h1>varyfid</h1> :<button
+                    onClick={() => handelvaryfid(p.email)}
+                    className="btn btn-outline btn-secondary btn-sm"
+                  >
+                    varyfi
+                  </button>
+                  }
+                  
+                </td>
                 <td>
                   <button
                     onClick={() => handeldelete(p._id)}

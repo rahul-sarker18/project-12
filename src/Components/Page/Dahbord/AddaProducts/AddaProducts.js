@@ -7,6 +7,7 @@ import { Authcontext } from "../../../Context/Usercontext";
 
 const AddaProducts = () => {
   const { user } = useContext(Authcontext);
+  console.log(user);
   const dat = new Date();
   const date = format(dat, "PP");
   const navigate = useNavigate();
@@ -53,6 +54,7 @@ const AddaProducts = () => {
           const ued = {
             name: productname,
             catocory,
+            postimg: user?.photoURL,
             Price: price,
             originalprice,
             yearsof,
@@ -60,6 +62,7 @@ const AddaProducts = () => {
             date,
             id: cotogory,
             emali: user?.email,
+            username: user?.displayName,
             image: imageData.data.url,
           };
 

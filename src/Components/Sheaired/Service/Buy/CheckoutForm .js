@@ -35,6 +35,18 @@ const CheckoutForm = ({ p }) => {
     })
       .then((res) => res.json())
       .then((data) => {
+
+fetch(``, {
+  method: "PUT",
+  headers: {
+    "comtent-type": "application/json",
+  },
+})
+  .then((res) => res.json())
+  .then((dat) => {
+    console.log(dat);
+  });
+
         toast.success("successFuly paent !!");
         navegate("/");
       });

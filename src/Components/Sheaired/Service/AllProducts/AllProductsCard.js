@@ -4,7 +4,7 @@ import { BiRupee } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const AllProductsCard = ({ pro }) => {
-  const { name, Price, image, location, originalprice, yearsof, _id } = pro;
+  const { name, Price,  location, originalprice, yearsof, _id , image , postimg ,username , date} = pro;
 
   return (
     <div>
@@ -12,12 +12,12 @@ const AllProductsCard = ({ pro }) => {
         <div className="flex space-x-4">
           <img
             alt=""
-            src="https://source.unsplash.com/100x100/?portrait"
+            src={postimg}
             className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500"
           />
           <div className="flex flex-col space-y-1">
-            <span className="text-sm font-semibold">Leroy Jenkins</span>
-            <span className="text-xs dark:text-gray-400">4 hours ago</span>
+            <span className="text-sm font-semibold">{username}</span>
+            <span className="text-xs dark:text-gray-400">{date}</span>
           </div>
         </div>
 
