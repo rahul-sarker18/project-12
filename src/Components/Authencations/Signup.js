@@ -29,11 +29,11 @@ const Signup = () => {
         //update user name
         updateProfile(auth.currentUser, {
           displayName: data.username,
-          photoURL: "https://i.ibb.co/ZJnwZhP/no.png",
+          photoURL: "https://i.ibb.co/RvF2Yhc/noimf.png",
         })
           .then(() => {
             const useinformation = { email, username, roll };
-            fetch("https://mobil-sarver.vercel.app/users", {
+            fetch("https://mobil-sarver-rahul-sarker18.vercel.app/users", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -66,7 +66,7 @@ const Signup = () => {
           roll: "Buyers account",
         };
 
-        fetch("https://mobil-sarver.vercel.app/users", {
+        fetch("https://mobil-sarver-rahul-sarker18.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

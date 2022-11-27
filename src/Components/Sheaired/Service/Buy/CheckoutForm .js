@@ -9,7 +9,7 @@ const CheckoutForm = ({ p }) => {
  
   const dat = new Date();
   const date = format(dat, "PP");
-  const { Price, name, image, emali } = p;
+  const { Price, name, image, emali, _id } = p;
   const navegate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -29,15 +29,29 @@ const CheckoutForm = ({ p }) => {
       location,
       number,
     };
-    fetch("https://mobil-sarver.vercel.app/books", {
+    fetch("https://mobil-sarver-rahul-sarker18.vercel.app/books", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(update),
     })
       .then((res) => res.json())
       .then((data) => {
-        toast.success("successFuly paent !!");
-        navegate("/");
+        if (data.acknowledged) {
+          fetch(
+            `https://mobil-sarver-rahul-sarker18.vercel.app/notadvertice/${_id}`,
+            {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+              },
+            }
+          )
+            .then((res) => res.json())
+            .then((dd) => {
+              toast.success("successFuly paent !!");
+              navegate("/");
+            });
+        }
       });
   };
 
@@ -86,6 +100,7 @@ const CheckoutForm = ({ p }) => {
             phone number
           </label>
           <input
+            required
             type="number"
             name="number"
             id="phone number"
@@ -98,6 +113,7 @@ const CheckoutForm = ({ p }) => {
             Location
           </label>
           <input
+            required
             type="text"
             id="location"
             name="location"
@@ -105,7 +121,6 @@ const CheckoutForm = ({ p }) => {
             className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-blue-400"
           />
         </div>
-      
 
         <button
           className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-blue-400"

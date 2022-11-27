@@ -66,7 +66,7 @@ const AddaProducts = () => {
             image: imageData.data.url,
           };
 
-          fetch("https://mobil-sarver.vercel.app/allProduct", {
+          fetch("https://mobil-sarver-rahul-sarker18.vercel.app/allProduct", {
             method: "POST",
             headers: {
               "content-type": "application/json",

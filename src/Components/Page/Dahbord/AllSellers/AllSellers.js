@@ -10,7 +10,9 @@ const AllSellers = () => {
   } = useQuery({
     queryKey: [],
     queryFn: async () => {
-      const res = await fetch("https://mobil-sarver.vercel.app/allseler");
+      const res = await fetch(
+        "https://mobil-sarver-rahul-sarker18.vercel.app/allseler"
+      );
       const data = await res.json();
       return data;
     },
@@ -26,7 +28,7 @@ const AllSellers = () => {
   const handeldelete = (id) => {
     const confrim = window.confirm("Are you soure");
     if (confrim) {
-      fetch(`https://mobil-sarver.vercel.app/seler/${id}`, {
+      fetch(`https://mobil-sarver-rahul-sarker18.vercel.app/seler/${id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",
@@ -42,15 +44,17 @@ const AllSellers = () => {
   };
 
   const handelvaryfid = (email) => {
-  
     const confrim = window.confirm("Are you soure");
     if (confrim) {
-      fetch(`https://mobil-sarver.vercel.app/allseler?email=${email}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-      })
+      fetch(
+        `https://mobil-sarver-rahul-sarker18.vercel.app/allseler?email=${email}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      )
         .then((res) => res.json())
         .then((daatinfo) => {
           toast.success("VARYFID successfull !!");

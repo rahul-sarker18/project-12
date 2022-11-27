@@ -10,7 +10,9 @@ const ReportedItems = () => {
   } = useQuery({
     queryKey: [],
     queryFn: async () => {
-      const res = await fetch("http://localhost:8000/reportedites");
+      const res = await fetch(
+        "https://mobil-sarver-rahul-sarker18.vercel.app/reportedites"
+      );
       const data = await res.json();
       return data;
     },
@@ -25,7 +27,7 @@ const ReportedItems = () => {
     const confirmation = window.confirm("are you soure");
 
     if (confirmation) {
-      fetch(`https://mobil-sarver.vercel.app/mypro/${id}`, {
+      fetch(`https://mobil-sarver-rahul-sarker18.vercel.app/mypro/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

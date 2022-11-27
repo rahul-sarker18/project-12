@@ -15,7 +15,7 @@ const Myorders = () => {
     queryKey: ["myorders", roll.email],
     queryFn: async () => {
       const res = await fetch(
-        `https://mobil-sarver.vercel.app/myorders?email=${roll.email}`
+        `https://mobil-sarver-rahul-sarker18.vercel.app/myorders?email=${roll.email}`
       );
       const data = await res.json();
       return data;

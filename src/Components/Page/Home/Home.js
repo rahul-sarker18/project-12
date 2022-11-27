@@ -9,7 +9,7 @@ const Home = () => {
   const [add, setadd] = useState([]);
 
   useEffect(() => {
-    fetch("https://mobil-sarver.vercel.app/advatise")
+    fetch("https://mobil-sarver-rahul-sarker18.vercel.app/advatise")
       .then((res) => res.json())
       .then((data) => {
         setadd(data);

@@ -6,13 +6,16 @@ const ReportModal = ({ setreportModa, id }) => {
     e.preventDefault();
     const reportmases = e.target.rep.value;
 
-    fetch(`http://localhost:8000/reportmessage/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({reportmases})
-    })
+    fetch(
+      `https://mobil-sarver-rahul-sarker18.vercel.app/reportmessage/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ reportmases }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {

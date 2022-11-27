@@ -6,7 +6,7 @@ const MyproductsCard = ({ all, handeldelet }) => {
   const { name, date, image, _id } = all;
 
   const handeladd = (id) => {
-    fetch(`https://mobil-sarver.vercel.app/advertise/${id}`, {
+    fetch(`https://mobil-sarver-rahul-sarker18.vercel.app/advertise/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

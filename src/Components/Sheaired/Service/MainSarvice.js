@@ -5,7 +5,7 @@ const MainSarvice = () => {
   const [catogory, setCatogory] = useState([]);
 
   useEffect(() => {
-    fetch("https://mobil-sarver.vercel.app/allCatagory")
+    fetch("https://mobil-sarver-rahul-sarker18.vercel.app/allCatagory")
       .then((res) => res.json())
       .then((data) => setCatogory(data));
   }, []);

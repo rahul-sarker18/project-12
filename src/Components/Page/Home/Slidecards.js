@@ -5,7 +5,7 @@ const Slidecards = () => {
     const [slide ,setslide] =useState([])
 
     useState(()=>{
-        fetch("https://mobil-sarver.vercel.app/allCatagory")
+        fetch("https://mobil-sarver-rahul-sarker18.vercel.app/allCatagory")
           .then((res) => res.json())
           .then((data) => setslide(data));
     },[])

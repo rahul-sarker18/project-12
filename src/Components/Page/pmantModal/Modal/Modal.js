@@ -10,11 +10,14 @@ const Modal = ({ modalId, cprice, setModal , refetch }) => {
   const [clientSecret, setClientSecret] = useState("");
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("https://mobil-sarver.vercel.app/create-payment-intent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ price: cprice }),
-    })
+    fetch(
+      "https://mobil-sarver-rahul-sarker18.vercel.app/create-payment-intent",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ price: cprice }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
   }, [cprice]);
@@ -60,17 +63,22 @@ const Modal = ({ modalId, cprice, setModal , refetch }) => {
     }
 
     if (paymentIntent.status) {
-      fetch(`https://mobil-sarver.vercel.app/bokingd/${modalId}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-      })
+      fetch(
+        `https://mobil-sarver-rahul-sarker18.vercel.app/bokingd/${modalId}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
-          setModal("");
-          refetch();
-          toast.success("successfull pemant !!");
+          if (data.modifiedCount) {
+            refetch();
+            setModal("");
+            toast.success("successfull pemant !!");
+          }
         });
     }
   };

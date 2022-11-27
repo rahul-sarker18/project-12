@@ -23,13 +23,14 @@ const AllProductsCard = ({ pro }) => {
   } = pro;
 
   useEffect(() => {
-    fetch(`http://localhost:8000/uservery?email=${emali}`)
+    fetch(
+      `https://mobil-sarver-rahul-sarker18.vercel.app/uservery?email=${emali}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setveryf(data);
       });
   }, [emali]);
-
 
   const { varefy } = veryf;
 
@@ -48,7 +49,7 @@ const AllProductsCard = ({ pro }) => {
             className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500"
           />
           {varefy && (
-            <TiTick className=" absolute text-3xl left-4 top-5 text-blue-700" />
+            <TiTick className=" absolute text-3xl left-4 top-5 text-blue-600" />
           )}
 
           <div className="flex flex-col space-y-1">
@@ -84,14 +85,15 @@ const AllProductsCard = ({ pro }) => {
             </p>
           </div>
           <div>
-            {reportModa && <ReportModal id={reportModa} setreportModa={setreportModa} />}
+            {reportModa && (
+              <ReportModal id={reportModa} setreportModa={setreportModa} />
+            )}
 
             <label
               htmlFor="my-modal-3"
-              onClick={() => handelreport( _id)}
+              onClick={() => handelreport(_id)}
               className="btn btn-secondary gap-2 w-1/2"
             >
-        
               Report peoduct
             </label>
 
