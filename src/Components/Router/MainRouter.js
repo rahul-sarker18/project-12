@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       { path: "/services", element: <MainSarvice /> },
       { path: "/blog", element: <Blog /> },
       {
-        path: "//services/:id",
+        path: "/services/:id",
         element: <AllProducts />,
         loader: ({ params }) =>
           fetch(`http://localhost:8000/allProducts/${params.id}`),

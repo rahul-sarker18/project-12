@@ -21,7 +21,7 @@ const Advitisment = ({ pr }) => {
 
   return (
     <div className='my-8'>
-      <h1 className="text-2xl text-center my-4"> Advertised items</h1>
+     
 
       <div>
         <div className="flex mx-auto flex-col max-w-xl p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">

@@ -11,6 +11,7 @@ const CheckoutForm = ({ p }) => {
   const date = format(dat, "PP");
   const { Price, name, image, emali } = p;
   const navegate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -35,18 +36,6 @@ const CheckoutForm = ({ p }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-
-fetch(``, {
-  method: "PUT",
-  headers: {
-    "comtent-type": "application/json",
-  },
-})
-  .then((res) => res.json())
-  .then((dat) => {
-    console.log(dat);
-  });
-
         toast.success("successFuly paent !!");
         navegate("/");
       });

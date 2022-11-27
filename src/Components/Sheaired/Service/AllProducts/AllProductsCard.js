@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const AllProductsCard = ({ pro }) => {
   const { name, Price,  location, originalprice, yearsof, _id , image , postimg ,username , date} = pro;
-
+  
   return (
     <div>
       <div className="flex mx-auto flex-col max-w-xl p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">

@@ -18,10 +18,6 @@ const DasbordNave = () => {
       {roll?.roll === "Seller account" && (
         <>
           <li>
-            <NavLink to="/dasbord/Myorders">My orders</NavLink>
-          </li>
-
-          <li>
             <NavLink to="/dasbord/AddAproduct">Add A product</NavLink>
           </li>
           <li>
