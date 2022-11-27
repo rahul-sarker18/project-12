@@ -58,12 +58,12 @@ const DasbordNave = () => {
 
       <div className="navbar bg-base-100 block lg:hidden">
         <div className="dropdown dropdown-star">
-          <label tabIndex={0} className="btn btn-ghost">
-            <div className="w-32 font-bold">dasbord manue</div>
+          <label tabIndex={0} >
+            <div className="w-36 font-bold text-sm rounded-xl bg-blue-700 py-4 px-3">Dasbord Manue</div>
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 border rounded-box w-52"
           >
             {manue}
           </ul>
