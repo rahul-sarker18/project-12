@@ -12,7 +12,7 @@ const MainSarvice = () => {
 
  
 
-  return <div className="grid md:grid-cols-3 lg:grid-cols-3 my-16 gap-6">
+  return <div className="grid md:grid-cols-3 lg:grid-cols-3 my-16 gap-6 shadow-xl mx-auto justify-center ">
     {
        catogory.map(p => <MainserviecsCard key={p._id} pr ={p}></MainserviecsCard>) 
     }

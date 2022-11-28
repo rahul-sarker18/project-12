@@ -18,6 +18,7 @@ import AllProducts from "../Sheaired/Service/AllProducts/AllProducts";
 import Byu from "../Sheaired/Service/Buy/Byu";
 import MainSarvice from "../Sheaired/Service/MainSarvice";
 import AdmineRoute from "./AdmineRoute";
+import BuyerRoute from "./BuyerRoute";
 import MyselerRout from "./MyselerRout";
 import PrivateRout from "./PrivateRout";
 
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
       </PrivateRout>
     ),
     children: [
-      { path: "/dasbord/Myorders", element: <Myorders /> },
+      { path: "/dasbord/Myorders", element: <BuyerRoute><Myorders /></BuyerRoute>  },
 
       {
         path: "/dasbord/AddAproduct",

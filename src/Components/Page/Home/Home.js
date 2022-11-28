@@ -15,7 +15,6 @@ const Home = () => {
         setadd(data);
       }, []);
   });
- 
 
   return (
     <div>
@@ -40,14 +39,14 @@ const Home = () => {
       )}
 
       <div>
-        <div className="flex mx-auto justify-center items-center gap-4 my-3">
+        <div className="flex mx-auto justify-center items-center gap-4 mt-10 ">
           <BsArrow90DegDown className="text-3xl" />
 
           <h1 className="text-2xl font-semibold mb-3 mt-5">Sirvice Catogore</h1>
           <BsArrow90DegLeft className="text-3xl" />
         </div>
       </div>
-      <div>
+      <div className="mb-4">
         <MainSarvice />
       </div>
 
