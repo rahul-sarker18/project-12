@@ -1,5 +1,5 @@
  # website name :: mobile-resale
- # Hosting url :: https://mobile-resale.web.app
+
 
  *  admin email ::  rahulsarker@gmail.com 
 
