@@ -2,7 +2,7 @@
  # Hosting url :: https://mobile-resale.web.app
 
  *  admin email ::  rahulsarker@gmail.com 
- *  admin pass :: 123456
+
 
 
 # The features used in my website are:
